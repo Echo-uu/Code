@@ -4,6 +4,8 @@
 
 using namespace std;
 int ans[1000];
+
+//埃拉托色尼筛
 int * eratoshenes(int n){
     int tmp;
     for(int i = 1; i <= n; i++)
