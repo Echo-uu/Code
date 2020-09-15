@@ -5,7 +5,7 @@ import java.net.*;
 public class Practice {
     // DAY ONE
     public static void main(String[] atgs){
-        testGeometricObject();
+        testThread();
     }
 
     public static void dayOne(){
@@ -197,6 +197,20 @@ public class Practice {
         System.out.println("\nThe area is " + obj.getArea() +
          "\nThe premeter is " + obj.getPerimeter());
     }
+
+    public static void testThread(){
+        Runnable printA = new printChar('a', 100);
+        Runnable printB = new printChar('b', 100);
+        Runnable print100 = new printNum(100);
+
+        Thread thread1 = new Thread(printA);
+        Thread thread2 = new Thread(printB);
+        Thread thread3 = new Thread(print100);
+
+        thread1.start();
+        thread2.start();
+        thread3.start();
+    }
 }
 
 //Day FIVE 2020.9.7
@@ -328,3 +342,35 @@ class Rectangle extends GeometricObject{
     }
 }
 
+//2020.9.14
+class printChar implements Runnable {
+    private char charToPrint;
+    private int times;
+
+    public printChar(char c, int t) {
+        charToPrint = c;
+        times = t;
+    }
+
+    @Override
+    public void run() {
+        for(int i = 1; i <= times; i++){
+            System.out.print(charToPrint);
+        }
+    }
+}
+
+class printNum implements Runnable {
+    private int num;
+
+    public printNum(int num) {
+        this.num = num;
+    }
+
+    @Override
+    public void run() {
+        for(int i = 1; i <= num; i++){
+            System.out.print(' ' + i);
+        }
+    }
+}
