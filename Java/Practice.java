@@ -1,4 +1,6 @@
 import java.util.*;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
 import java.io.*;
 import java.net.*;
 
@@ -198,7 +200,8 @@ public class Practice {
          "\nThe premeter is " + obj.getPerimeter());
     }
 
-    public static void testThread(){
+    //2020.9.14
+    public static void testThread() {
         Runnable printA = new printChar('a', 100);
         Runnable printB = new printChar('b', 100);
         Runnable print100 = new printNum(100);
@@ -210,6 +213,16 @@ public class Practice {
         thread1.start();
         thread2.start();
         thread3.start();
+    }
+
+    public static void threadPool() {
+        ExecutorService executor = Executors.newFixedThreadPool(3);
+
+        executor.execute(new printChar('a', 100));
+        executor.execute(new printChar('b', 100));
+        executor.execute(new printNum(100));
+
+        executor.shutdown();
     }
 }
 
@@ -358,6 +371,8 @@ class printChar implements Runnable {
             System.out.print(charToPrint);
         }
     }
+    /*
+    */
 }
 
 class printNum implements Runnable {
@@ -373,4 +388,19 @@ class printNum implements Runnable {
             System.out.print(' ' + i);
         }
     }
+
+    /*
+    @Override 
+    public void run() {
+        try {
+            for(int i = 1; i <= num; i++){
+                System.out.print(' ' + i);
+                if(i == 50) Thread.sleep(100);
+            }
+        }
+        catch(InterrupedException ex) {
+            ex.printStackTrace();
+        }
+    }
+    */
 }
