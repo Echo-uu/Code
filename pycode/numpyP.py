@@ -4,6 +4,7 @@
 import numpy as np
 import matplotlib as mpl
 import matplotlib.pyplot as plt
+from numpy.linalg import inv, qr
 
 #%matplotlib inline
 
@@ -108,7 +109,31 @@ def ufuncTest():
     print('\nstd\n', Nd.std())
     print('\nvar\n', Nd.var())
     print('\nany(), or()\n', cond.any(), cond.all())
-    
+    #np.sort() np.lexsort() np.argsort()
+    ints = np.array([12, 5, 9, 12, 9, 9, 9, 4, 10])
+    print('\nnp.unique()\n', np.unique(ints))
+    print(sorted(set(ints)) == np.unique(ints))
+    #np.in1d()
+    print(np.in1d(arr0, [1, 2, 18, 19]))
+  
+    #numpy 读取磁盘的文本数据或二进制数据
+    #save() load()
+    np.save('array_zero', arr0)
+    print('\nnp.save() and np.load()\n', np.load('array_zero.npy'))
+    #np.savez()   np.savez_compressed()
+
+    #线性代数
+    #np.dot(x, y) = x.dot(y) = x @ y 矩阵叉乘
+    arr2 = np.random.randn(3, 3)
+    mat = arr2.T.dot(arr2)
+    print('\nnumpy.linalg 标准线性代数库\n', inv(mat))
+    print('\n', mat.dot(inv(mat)))
+    q, r = qr(mat)
+    print('\n', r)
+
+    #随机数和伪随机数
+    print('\nnp.random.shuffle()\n', np.random.shuffle(arr0))
+    print(arr0)
     return
 
 ufuncTest()
