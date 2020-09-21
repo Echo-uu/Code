@@ -2,7 +2,10 @@
 #基础感知：线性拟合数据
 
 import numpy as np
+import matplotlib as mpl
 import matplotlib.pyplot as plt
+
+#%matplotlib inline
 
 def linearT():
     #original data
@@ -58,4 +61,54 @@ def ndarrayTest():
     print(np.dot(data.T,data))
     return
 
-ndarrayTest()
+#ndarrayTest()
+
+#2020.9.19 Sat
+#通用函数(ufunc)：快速的元素级数组函数
+#是一种对ndarray中的数据执行元素级运算的函数。
+# 你可以将其看做简单函数（接受一个或多个标量值，
+# 并产生一个或多个标量值）的矢量化包装器。
+def ufuncTest():
+    arr0 = np.arange(20)
+    print('\n\n', np.sqrt(arr0))
+    print('\n\n', np.exp(arr0))
+    
+    arr1 = np.random.rand(20)
+    print('\n\n', np.maximum(arr0, arr1))
+    
+    #modf()返回整数和小数
+    print('\n\n', np.modf(arr1))
+
+    #np.meshgrid函数接受两个一维数组
+    #并产生两个二维矩阵（对应于两个数组中所有的(x,y)对）
+    pointX = np.arange(-5,5,0.01)
+    pointY = np.arange(-5,5,0.01)
+    x, y = np.meshgrid(pointX, pointY)
+    print('\n\n', x, '\n\n', y)
+    print('\n\n', np.sqrt(x ** 2 + y ** 2))
+    plt.imshow(np.sqrt(x ** 2 + y ** 2), cmap = mpl.cm.gray); plt.show(); #plt.colorbar()
+    plt.title("Image plot of $\sqrt{x^2 + y^2}$ for a grid of values")
+    
+    #np.where && x if condition else y
+    cond = np.random.choice([True, False], (20))
+
+    #result = [(X if c else Y)for X, Y, c in zip(arr0, arr1, cond)]
+    #print('\n\n', result)
+    print('\n\n', [(X if c else Y)for X, Y, c in zip(arr0, arr1, cond)])
+    print('\n\n', np.where(cond, arr0, arr1))
+
+    #np.random.randn()从标准正态分布中返回一个或多个样本值
+    Nd = np.random.randn(5, 4) 
+    print('\n', 'Normal Distribution Data\n', Nd)
+    #axis = 0 column value; axis = 1 row value
+    print('\n', Nd.mean(), np.mean(Nd))#average value
+    print('\n', Nd.sum())
+    print('\ncumsum\n', Nd.cumsum())
+    print('\ncumprod\n', Nd.cumprod())
+    print('\nstd\n', Nd.std())
+    print('\nvar\n', Nd.var())
+    print('\nany(), or()\n', cond.any(), cond.all())
+    
+    return
+
+ufuncTest()
