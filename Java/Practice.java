@@ -7,7 +7,7 @@ import java.net.*;
 public class Practice {
     // DAY ONE
     public static void main(String[] atgs){
-        testThread();
+        threadPool();
     }
 
     public static void dayOne(){
@@ -223,6 +223,13 @@ public class Practice {
         executor.execute(new printNum(100));
 
         executor.shutdown();
+
+	//ExecutorService executor1 = Executors.newFixedThreadPool(1);
+	
+	//executor1.execute(new printNum(100));
+	//executor1.execute(new printChar('t', 100));
+	
+	//executor1.shutdown();
     }
 }
 
