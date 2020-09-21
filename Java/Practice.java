@@ -224,12 +224,12 @@ public class Practice {
 
         executor.shutdown();
 
-	ExecutorService executor1 = Executors.newFixedThreadPool(1);
+	//ExecutorService executor1 = Executors.newFixedThreadPool(1);
 	
-	executor1.execute(new printNum(100));
-	executor1.execute(new printChar('t', 100));
+	//executor1.execute(new printNum(100));
+	//executor1.execute(new printChar('t', 100));
 	
-	executor1.shutdown();
+	//executor1.shutdown();
     }
 }
 
