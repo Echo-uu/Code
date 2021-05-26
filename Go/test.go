@@ -3,7 +3,10 @@ import "fmt"
 import "strconv"
 
 var _ int64=s()
+<<<<<<< HEAD
       
+=======
+>>>>>>> 9e502fdc2b06f31a3351efbb5a32d74483b10789
 
 func init(){
 	fmt.Println("init")

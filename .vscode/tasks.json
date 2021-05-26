@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
     "version": "2.0.0",
     "tasks": [
         {
@@ -47,4 +48,30 @@
             },
         }
     ]
+=======
+    "tasks": [
+        {
+            "type": "shell",
+            "label": "C/C++: g++.exe build active file",
+            "command": "D:\\mingw64\\bin\\g++.exe",
+            "args": [
+                "-g",
+                "${file}",
+                "-o",
+                "${fileDirname}\\${fileBasenameNoExtension}.exe"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            }
+        }
+    ],
+    "version": "2.0.0"
+>>>>>>> 9e502fdc2b06f31a3351efbb5a32d74483b10789
 }
