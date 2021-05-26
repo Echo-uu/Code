@@ -1,0 +1,46 @@
+package cn.edu.scau.sec.wangyunyun.composite.safe;
+
+import cn.edu.scau.sec.wangyunyun.client.FourMixedOperations;
+
+public class SafeAtomTestCase extends SafeTestCase {
+	private int adder1;
+	private int adder2;
+	private int result;
+
+	public SafeAtomTestCase(int result, int adder1, int adder2) {
+		this.adder1 = adder1;
+		this.adder2 = adder2;
+		this.result = result;
+	}
+
+	public int getAdder1() {
+		return adder1;
+	}
+
+	public void setAdder1(int adder1) {
+		this.adder1 = adder1;
+	}
+
+	public int getAdder2() {
+		return adder2;
+	}
+
+	public void setAdder2(int adder2) {
+		this.adder2 = adder2;
+	}
+
+	public int getResult() {
+		return result;
+	}
+
+	public void setResult(int result) {
+		this.result = result;
+	}
+
+	public boolean test() {
+		FourMixedOperations fourMixedOperations = new FourMixedOperations();
+		int actual = fourMixedOperations.add(adder1, adder2);
+		System.out.println("期望的值是：" + result + ",两个数分别是" + adder1 + "," + adder2);
+		return result == actual;
+	}
+}

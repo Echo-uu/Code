@@ -1,0 +1,27 @@
+{
+    "configurations": [
+        {
+            "name": "MinGW64",
+            "intelliSenseMode": "gcc-x64",
+            "compilerPath": "D:/mingw64/bin/g++.exe", //重点! g++.exe所在路径
+            "includePath": [  //重点！
+                "${workspaceFolder}",
+                "D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/**",
+                "D:/mingw64/x86_64-w64-mingw32/include/**"
+            ],
+ 
+            "browse": {
+                "path": [
+                    "${workspaceFolder}",
+                    "D:/mingw64/lib/gcc/x86_64-w64-mingw32/8.1.0/**",
+                    "D:/mingw64/x86_64-w64-mingw32/include/**"
+                ]
+            },
+            "limitSymbolsToIncludedHeaders": true,
+            "databaseFilename": "",
+            "cStandard": "c11",
+            "cppStandard": "c++17"
+        }
+    ],
+    "version": 4
+}

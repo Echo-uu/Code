@@ -1,0 +1,16 @@
+package cn.edu.scau.sec.wangyunyun.composite.safe;
+
+public abstract class SafeTestCase {
+//	描述组合包含关系的属性
+	// private SafeTestCase testCase;
+
+	public abstract boolean test();
+
+//	public SafeTestCase getTestCase() {
+//		return testCase;
+//	}
+//
+//	public void setTestCase(SafeTestCase testCase) {
+//		this.testCase = testCase;
+//	}
+}

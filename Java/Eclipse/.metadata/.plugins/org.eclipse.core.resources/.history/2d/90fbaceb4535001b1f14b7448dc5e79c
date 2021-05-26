@@ -1,0 +1,16 @@
+package cn.edu.scau.sec.wangyunyun.composite.consist;
+
+import cn.edu.scau.sec.wangyunyun.client.FourMixedOperations;
+
+public class ConsistAtomTestCase extends ConsistTestCase {
+	public ConsistAtomTestCase(int result, int adder1, int adder2) {
+		super(result, adder1, adder2);
+	}
+
+	public boolean test() {
+		FourMixedOperations fourMixedOperations = new FourMixedOperations();
+		int actual = fourMixedOperations.add(getAdder1(), getAdder2());
+		System.out.println("期望的值是：" + getResult() + ",两个数分别是" + getAdder1() + "," + getAdder2());
+		return getResult() == actual;
+	};
+}

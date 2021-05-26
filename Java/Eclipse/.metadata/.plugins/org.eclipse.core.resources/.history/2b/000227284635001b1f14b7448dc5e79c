@@ -1,0 +1,32 @@
+package cn.edu.scau.sec.wangyunyun.composite.consist;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class ConsistTestSuite extends ConsistTestCase {
+	public ConsistTestSuite() {
+	}
+
+	// private ConsistTestCase testCase = new ConsistTestSuite();
+	private Set<ConsistTestCase> testCases = new HashSet<ConsistTestCase>();
+
+//	public ConsistTestCase getTestCase() {
+//		return testCase;
+//	}
+//
+//	public void setTestCase(ConsistTestCase testCase) {
+//		this.testCase = testCase;
+//	}
+
+	public boolean test() {
+		// 递归调用
+		for (ConsistTestCase testcase : testCases) {
+			if (testcase instanceof ConsistAtomTestCase) {
+				testcase.test();
+			} else {
+				test();
+			}
+		}
+		return false;
+	};
+}

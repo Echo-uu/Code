@@ -2,14 +2,26 @@ package main
 import "fmt"
 import "strconv"
 
-func main(){
+var _ int64=s()
+      
 
+func init(){
+	fmt.Println("init")
+}
+
+func s() int64{
+	fmt.Println("function")
+	return 1
+}
+
+func main(){
+	fmt.Println("main")
 	// strFmtPrintf()
 	// strConv()
 	// strParse()
-	//pointer()
-	//basePrint()
-	flowControl()
+	// pointer()
+	// basePrint()
+	// flowControl()
 }
 
 func print(){

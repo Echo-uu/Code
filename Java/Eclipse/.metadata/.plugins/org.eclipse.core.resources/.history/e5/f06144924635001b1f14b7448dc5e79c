@@ -1,0 +1,74 @@
+package cn.edu.scau.sec.wangyunyun.composite.consist;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import cn.edu.scau.sec.wangyunyun.composite.safe.SafeTestCase;
+
+public abstract class ConsistTestCase {
+	private int result;
+	private int adder1;
+	private int adder2;
+
+	// private ConsistTestCase testCase;
+	private Set<ConsistTestCase> testCases = new HashSet<ConsistTestCase>();
+
+	public ConsistTestCase() {
+	}
+
+	public ConsistTestCase(int result, int adder1, int adder2) {
+		this.result = result;
+		this.adder1 = adder1;
+		this.adder2 = adder2;
+	}
+
+	public int getResult() {
+		return result;
+	}
+
+	public void setResult(int result) {
+		this.result = result;
+	}
+
+	public int getAdder1() {
+		return adder1;
+	}
+
+	public void setAdder1(int adder1) {
+		this.adder1 = adder1;
+	}
+
+	public int getAdder2() {
+		return adder2;
+	}
+
+	public void setAdder2(int adder2) {
+		this.adder2 = adder2;
+	}
+
+//	public ConsistTestCase getTestCase() {
+//		return testCase;
+//	}
+//
+//	public void setTestCase(ConsistTestCase testCase) {
+//		this.testCase = testCase;
+//	}
+
+//	public Set<ConsistTestCase> getChildTestCases() {
+//		return childTestCases;
+//	}
+//
+//	public void setChildTestCases(Set<ConsistTestCase> childTestCases) {
+//		this.childTestCases = childTestCases;
+//	}
+
+	public abstract boolean test();
+
+	public void addAtom(ConsistTestCase testCase) {
+		testCases.add(testCase);
+	}
+	
+	public void removeAtom(ConsistTestCase testCase) {
+		testCases.remove(testCase);
+	}
+}

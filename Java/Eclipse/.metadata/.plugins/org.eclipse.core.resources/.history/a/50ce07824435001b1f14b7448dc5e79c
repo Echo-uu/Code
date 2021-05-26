@@ -1,0 +1,32 @@
+package cn.edu.scau.sec.wangyunyun.composite.safe;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class SafeTestSuite extends SafeTestCase {
+	Set<SafeTestCase> testCases = new HashSet<SafeTestCase>();
+
+	public void addAtom(SafeTestCase testCase) {
+		testCases.add(testCase);
+	}
+
+	public void removeAtom(SafeTestCase testCase) {
+		testCases.remove(testCase);
+	}
+
+//	public Set<SafeTestCase> getTestCases() {
+//		return testCases;
+//	}
+
+	public boolean test() {
+		// 递归调用
+		for (SafeTestCase testcase : testCases) {
+			if (testcase instanceof SafeAtomTestCase) {
+				testcase.test();
+			} else {
+				test();
+			}
+		}
+		return false;
+	}
+}

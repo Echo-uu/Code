@@ -1,0 +1,107 @@
+package cn.edu.scau.sec.wangyunyun.client;
+
+import cn.edu.scau.sec.wangyunyun.composite.consist.ConsistAtomTestCase;
+import cn.edu.scau.sec.wangyunyun.composite.consist.ConsistTestCase;
+import cn.edu.scau.sec.wangyunyun.composite.consist.ConsistTestSuite;
+import cn.edu.scau.sec.wangyunyun.composite.safe.SafeAtomTestCase;
+import cn.edu.scau.sec.wangyunyun.composite.safe.SafeTestCase;
+import cn.edu.scau.sec.wangyunyun.composite.safe.SafeTestSuite;
+
+public class CompositeClient {
+
+	public static void main(String[] args) {
+		//safeTest();
+		consistTest();
+	}
+
+	private static void safeTest() {
+		SafeTestCase atomTestCase1 = new SafeAtomTestCase(2, 1, 1);
+		if (atomTestCase1.test()) {
+			System.out.println("测试通过");
+		} else {
+			System.out.println("测试没有通过，请检查测试数据和被测试的方法，查找测试没有通过的原因");
+		}
+
+		SafeTestCase atomTestCase2 = new SafeAtomTestCase(3, 2, 1);
+		if (atomTestCase2.test()) {
+			System.out.println("测试通过");
+		} else {
+			System.out.println("测试没有通过，请检查测试数据和被测试的方法，查找测试没有通过的原因");
+		}
+
+		SafeTestCase atomTestCase3 = new SafeAtomTestCase(4, 2, 1);
+		if (atomTestCase3.test()) {
+			System.out.println("测试通过");
+		} else {
+			System.out.println("测试没有通过，请检查测试数据和被测试的方法，查找测试没有通过的原因");
+		}
+
+		SafeTestSuite compositeTestCase1 = new SafeTestSuite();
+		compositeTestCase1.addAtom(atomTestCase1);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试添加了第一个原子测试用例后测试完成");
+
+		compositeTestCase1.addAtom(atomTestCase2);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试添加了第一个和第二个原子测试用例后的组合测试用例测试完成");
+		
+		SafeTestSuite compositeTestCase2 = new SafeTestSuite();
+		compositeTestCase2.addAtom(atomTestCase3);
+		compositeTestCase2.test();
+		System.out.println("第二个组合测试添加了第三个原子测试用例后测试完成");
+		
+		compositeTestCase1.addAtom(compositeTestCase2);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试用例添加了第二个组合测试用例后，第一个组合测试用例运行完毕");
+		
+		compositeTestCase1.removeAtom(compositeTestCase2);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试用例删除了第二个组合测试用例后，第一个组合测试用例运行完毕");
+	}
+
+	private static void consistTest() {
+		ConsistTestCase atomTestCase1 = new ConsistAtomTestCase(2, 1, 1);
+		if (atomTestCase1.test()) {
+			System.out.println("测试通过");
+		} else {
+			System.out.println("测试没有通过，请检查测试数据和被测试的方法，查找测试没有通过的原因");
+		}
+
+		ConsistTestCase atomTestCase2 = new ConsistAtomTestCase(3, 2, 1);
+		if (atomTestCase2.test()) {
+			System.out.println("测试通过");
+		} else {
+			System.out.println("测试没有通过，请检查测试数据和被测试的方法，查找测试没有通过的原因");
+		}
+
+		ConsistTestCase atomTestCase3 = new ConsistAtomTestCase(4, 2, 1);
+		if (atomTestCase3.test()) {
+			System.out.println("测试通过");
+		} else {
+			System.out.println("测试没有通过，请检查测试数据和被测试的方法，查找测试没有通过的原因");
+		}
+
+		ConsistTestSuite compositeTestCase1 = new ConsistTestSuite();
+		compositeTestCase1.addAtom(atomTestCase1);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试添加了第一个原子测试用例后测试完成");
+
+		compositeTestCase1.addAtom(atomTestCase2);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试添加了第一个和第二个原子测试用例后的组合测试用例测试完成");
+		
+		ConsistTestSuite compositeTestCase2 = new ConsistTestSuite();
+		compositeTestCase2.addAtom(atomTestCase3);
+		compositeTestCase2.test();
+		System.out.println("第二个组合测试添加了第三个原子测试用例后测试完成");
+		
+		compositeTestCase1.addAtom(compositeTestCase2);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试用例添加了第二个组合测试用例后，第一个组合测试用例运行完毕");
+		
+		compositeTestCase1.removeAtom(compositeTestCase2);
+		compositeTestCase1.test();
+		System.out.println("第一个组合测试用例删除了第二个组合测试用例后，第一个组合测试用例运行完毕");
+	}
+
+}
