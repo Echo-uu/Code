@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">账单同步</string>
+    <string name="tab_home">首页</string>
+    <string name="tab_bills">账单</string>
+    <string name="tab_stats">统计</string>
+    <string name="tab_settings">设置</string>
+    <string name="total_expense">总支出</string>
+    <string name="total_income">总收入</string>
+    <string name="today">今日</string>
+    <string name="this_week">本周</string>
+    <string name="this_month">本月</string>
+    <string name="notification_permission_title">通知读取权限</string>
+    <string name="notification_permission_desc">需要通知读取权限来自动同步微信、支付宝、美团等应用的账单</string>
+    <string name="sms_permission_title">短信读取权限</string>
+    <string name="sms_permission_desc">需要短信读取权限来自动同步银行交易短信</string>
+    <string name="import_csv">导入CSV账单</string>
+    <string name="source_wechat">微信</string>
+    <string name="source_alipay">支付宝</string>
+    <string name="source_meituan">美团</string>
+    <string name="source_cmb">招商银行</string>
+    <string name="source_ccb">建设银行</string>
+</resources>
